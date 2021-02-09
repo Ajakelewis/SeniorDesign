@@ -23,12 +23,6 @@ public class Lobby : MonoBehaviour
     /// </summary>
     public InputField customPlayerIdField;
 
-
-    /// <summary>
-    /// Dropdown for selecting the game region
-    /// </summary>
-    public Dropdown gameRegionDrowDown;
-
     void Start()
     {
         // Add an event handler for the OnRoomReadyEvent
@@ -41,21 +35,16 @@ public class Lobby : MonoBehaviour
         NetworkClient.Lobby.OnLobbyConnectedEvent += Lobby_OnLobbyConncetedEvent;
 
         // allow player to register
-        customPlayerIdField.gameObject.SetActive(true);
         registerButton.gameObject.SetActive(true);
         playButton.gameObject.SetActive(false);
-        gameRegionDrowDown.gameObject.SetActive(false);
     }
 
-    void OnDestroy()
+    void onDestroy()
     {
         // remove the handlers
-        if(NetworkClient.Lobby != null)
-        {
-            NetworkClient.Lobby.OnRoomReadyEvent -= Lobby_OnRoomReadyEvent;
-            NetworkClient.Lobby.OnFailedToStartRoomEvent -= Lobby_OnFailedToStartRoomEvent;
-            NetworkClient.Lobby.OnLobbyConnectedEvent -= Lobby_OnLobbyConncetedEvent;
-        }
+        NetworkClient.Lobby.OnRoomReadyEvent -= Lobby_OnRoomReadyEvent;
+        NetworkClient.Lobby.OnFailedToStartRoomEvent -= Lobby_OnFailedToStartRoomEvent;
+        NetworkClient.Lobby.OnLobbyConnectedEvent -= Lobby_OnLobbyConncetedEvent;
     }
 
     /* Lobby events handlers */
@@ -85,7 +74,7 @@ public class Lobby : MonoBehaviour
     {
         string customPlayerId = customPlayerIdField.text;
 
-        if (customPlayerId != null && customPlayerId.Length > 0)
+        if(customPlayerId != null && customPlayerId.Length > 0)
         {
             // use the user entered playerId to check into SocketWeaver. Make sure the PlayerId is unique.
             NetworkClient.Instance.CheckIn(customPlayerId,(bool ok, string error) =>
@@ -93,11 +82,7 @@ public class Lobby : MonoBehaviour
                 if (!ok)
                 {
                     Debug.LogError("Check-in failed: " + error);
-                    return;
                 }
-
-                UpdateGameRegionDropdownOptions();
-
             });
         }
         else
@@ -108,23 +93,9 @@ public class Lobby : MonoBehaviour
                 if (!ok)
                 {
                     Debug.LogError("Check-in failed: " + error);
-                    return;
                 }
-
-                UpdateGameRegionDropdownOptions();
             });
         }
-    }
-
-    /// <summary>
-    /// Game region value changed
-    /// </summary>
-    public void GameRegionChanged(int value)
-    {
-        NodeRegion nodeRegion = NetworkClient.Instance.AvailableNodeRegions[value];
-        NetworkClient.Instance.NodeRegion = nodeRegion.name;
-
-        RegisterPlayer();
     }
 
     /// <summary>
@@ -133,7 +104,7 @@ public class Lobby : MonoBehaviour
     public void Play()
     {
         // Here we use the JoinOrCreateRoom method to get player into rooms quickly.
-        NetworkClient.Lobby.JoinOrCreateRoom(true, 2, 20, HandleJoinOrCreatedRoom);
+        NetworkClient.Lobby.JoinOrCreateRoom(true, 2, 60, HandleJoinOrCreatedRoom);
     }
 
     /* Lobby helper methods*/
@@ -158,8 +129,6 @@ public class Lobby : MonoBehaviour
                 {
                     // allow player to join or create room
                     playButton.gameObject.SetActive(true);
-                    gameRegionDrowDown.gameObject.SetActive(true);
-                    customPlayerIdField.gameObject.SetActive(false);
                     registerButton.gameObject.SetActive(false);
                 }
             }
@@ -168,34 +137,6 @@ public class Lobby : MonoBehaviour
                 Debug.Log("Failed to register " + error);
             }
         });
-    }
-
-    void UpdateGameRegionDropdownOptions()
-    {
-        if(NetworkClient.Instance == null)
-        {
-            return;
-        }
-
-        gameRegionDrowDown.ClearOptions();
-
-        int currentValue = 0;
-
-        for(int i = 0; i< NetworkClient.Instance.AvailableNodeRegions.Length; i++)
-        {
-            NodeRegion nodeRegion = NetworkClient.Instance.AvailableNodeRegions[i];
-
-            if(nodeRegion.name.Equals(NetworkClient.Instance.NodeRegion))
-            {
-                currentValue = i;
-            }
-
-            gameRegionDrowDown.options.Add(new Dropdown.OptionData(nodeRegion.description));
-        }
-
-        gameRegionDrowDown.value = currentValue;
-
-        gameRegionDrowDown.onValueChanged.AddListener(GameRegionChanged);
     }
 
     /// <summary>
