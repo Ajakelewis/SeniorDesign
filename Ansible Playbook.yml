@@ -1,0 +1,75 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Install Required Packages
+    become: yes
+    apt: pkg={{ item }} state=latest
+    with_items:
+    - apache2
+    - mysql-client 
+    - vim
+    - git
+    - curl
+    - sed
+    - php
+    - libapache2-mod-php
+    - php-mysql
+    - php7.2-cli
+    - php7.2-curl
+    - php7.2-gd
+    - php7.2-mbstring
+    - php7.2-mysql
+    - php7.2-xml
+
+  - name: Set mod-enabled apache2
+    become: yes
+    shell: sed -i "s%index.php %%" /etc/apache2/mods-enabled/dir.conf
+
+  - name: Set mod-enabled apache2 2
+    become: yes
+    shell: sed -i "s%DirectoryIndex%DirectoryIndex index.php%" /etc/apache2/mods-enabled/dir.conf
+
+  - name: Set sites-available apache2
+    become: yes
+    shell: sed -i "s%/var/www/html%/var/www/html/public%g" /etc/apache2/sites-available/000-default.conf
+
+  - name: Get affinity From Github
+    become: yes
+    git: repo=https://github.com/csuntechlab/affinity.git dest=/var/www/html/affinity
+
+  - name: Set affinity Permissions
+    file:
+      path: "/var/www/html/affinity"
+      state: directory
+      owner: www-data
+      group: www-data
+      mode: 0755
+    become: yes
+
+  - name: Set Symbolic Link
+    become: yes
+    command: ln -s /var/www/html/affinity/public /var/www/html/public
+
+  - name: Set apache2 config
+    become: yes
+    shell: sed -i "s%Require all denied%Require all granted%g" /etc/apache2/apache2.conf
+
+  - name: Set apache2 config 2
+    become: yes
+    shell: sed -i "s%Directory /var/www/%Directory /var/www/html/public%g" /etc/apache2/apache2.conf
+
+  - name: Get composer
+    become: yes
+    shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+  - name: composer Install
+    become: yes
+    command: composer install
+    args:
+      chdir: /var/www/html/affinity
+
+  - name: apache2 Start
+    become: yes
+    service:
+      name: apache2
+      state: started
