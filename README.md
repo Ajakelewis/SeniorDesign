@@ -1,2 +1,2 @@
 # movie-app
-Movie App - TMDb Api - Electron
+Movie App - TMDb Api
