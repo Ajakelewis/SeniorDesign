@@ -1,4 +1,4 @@
-What it is
+What  is this?
 
 This is project 0 for CIT 481. We've used Github and Amazon Web Services to create and host a website on an EC2 Instance. 
 
@@ -13,6 +13,7 @@ Ansible Playbook
 Community
 
 The development team can usually be found in the Slack server.
+
 
 Special Thanks to
 
