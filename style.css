@@ -1,0 +1,182 @@
+
+/* selecting all the elements: border-box means that the width and height properties include the content, padding, and border, but do not include the margin */
+* {
+    box-sizing: border-box;
+}
+
+/* background img will be inside the html for whole page  */
+html{
+   background: url("https://cdn.glitch.com/679f8215-53b7-4d85-a959-e4c9f117e744%2Fblocks2.png?v=1607417368478");
+}
+
+body {
+/*    background-color: #161A29;     */
+    margin: auto;
+    font-family: 'Architects Daughter', cursive;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+  
+}
+
+
+/* SIZE-RELATED CSS configurations to search bar */
+.search, .input {
+
+    width: 33%;
+    padding: 0px 0px;
+    margin-right:910px;
+    transform: translateX(-15%);
+
+}
+
+/* this represents any input/text areas displaying placeholder text.  */
+/* Refers to the text within the searchbar  */
+/* :placeholder-shown {
+    width: 100%;
+    font-size: 20px;
+    color: red;
+    padding: 0.5rem 1rem;
+}  */
+
+
+main {
+    display: flex;
+  /* The flex-wrap property specifies whether the flexible items should wrap or not. also Specifies that the flexible items will wrap, if necessary, in reverse order*/
+    flex-wrap: wrap-reverse;
+    margin:50px;
+    margin-left:125px;
+}
+
+/* affects the sizing of the boxes */
+
+.movie {
+    width: 290px;
+    background-color: #1C3160;
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 20.2);
+    overflow: hidden;
+    position: relative;
+    margin: 1.0rem;
+/*  margin-left:1%; */
+
+}
+
+/* changes sizing of image within the movie boxes*/
+
+.movie img {
+    width: 100%;
+}
+
+/* everything inside the movie boxes */
+.movie-info, .release-date, .popularity, .originlanguage, .genres {
+    color: #eee;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+    margin: 0;
+}
+
+.movie-info span {
+    background-color: #22254b;
+    border-radius: 20%;
+    font-weight: bold;
+    padding: 2px 8px;
+}
+
+/* setting color of the text for ratings 9-10 */
+.movie-info span.green {
+    color: rgb(39, 189, 39);
+}
+
+/* ratings 5-8 */
+.movie-info span.orange {
+    color: orange;
+}
+
+/* below 5 rating */
+.movie-info span.red {
+    color: rgb(189, 42, 42);
+}
+
+.summary {
+    background-color: #fff;
+    color: black;
+    font-weight: lighter;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    overflow: auto;
+    transform: translateX(-101%);
+    transition: transform 0.5s ease-in;
+}
+
+.summary h3 {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.movie:hover .summary {
+    transform: translate(0);
+
+}
+
+
+/* kc's parts */
+.movie:hover{
+  position:relative;
+  z-index: 1;
+  transition: all 0.32s ease-in-out;
+/*   transform: scale(1.24, 1.175); */
+  transform: translateY(-6%);
+/*   -webkit-transition: all .4s ease; */
+  border: 1px solid black;
+  box-shadow: 20px 20px 20px 10px rgba(6, 8, 10, 0.4);
+/*   box-shadow: 20px 20px 20px 2000px rgba(6, 8, 10, 0.4); */
+/* pseudo modal [not actually wanted compared to actual modal - remove transition delay to make this work] */
+ 
+}
+
+/* img-bg and alpha-bg originally used to define background, however this has now been moved to HTML tag */
+
+/* .img-bg {
+ overflow:hidden;
+ background: url("https://cdn.glitch.com/679f8215-53b7-4d85-a959-e4c9f117e744%2F54fcbfba-0e4a-43d1-8871-17257188be2b.image.png?v=1607633657165"); */
+/*     background-repeat: no-repeat; */
+/*     background-size: 100% 100%;   */
+/*   background-size: 50% 50%; */
+
+/* .alpha-bg {
+  overflow: hidden;
+  height: 100%;
+  background: rgba(15, 10, 30, 0.63);
+/*   background-repeat: repeat; */ */
+/*   background-size: cover; */
+/* }
+ */
+
+
+/* required to make logo interactive with statement below */
+.center {
+  position:absolute;
+  width: 50%;
+  padding-top: 10px;
+}
+/* Gives the navbar items an animation while the mouse is hovering over them */
+.navbar-item:hover{
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  transition: all 0.32s ease-in-out;
+  transform: translateY(-8%);
+
+}
