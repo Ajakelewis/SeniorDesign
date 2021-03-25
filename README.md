@@ -6,11 +6,12 @@ This is project 0 for CIT 481. We've used Github and Amazon Web Services to crea
 
 ## Features
 
-Custom Domain
-Virtual Private Cloud (VPC)
-AWS Elastic Compute Cloud (EC2)
-Generate TLS Certificates
-Ansible Playbook
+ - Custom Domain
+ - Virtual Private Cloud (VPC)
+ - AWS Elastic Compute Cloud (EC2)
+ - TLS Certificate
+ - Ansible Playbook
+
 
 ## Community
 
