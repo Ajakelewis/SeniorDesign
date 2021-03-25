@@ -70,4 +70,12 @@ Install Certbot
 
 ![enter image description here](https://lh6.googleusercontent.com/7aZ7jD4ll0RsgdIPQXuqPoFPo_yUhJuSDDLrT17kJppLiJ_Iaj7rGeTIEp5obBjhahqj17Mty1ndDNDBaZ7_lxGrBfHWt7cxNcGz-l0rkJqvRGG0UR4OL50y6db0eS5cFfofrgd5)
 
-## How to run the Ansible Playbook
+## How to run the Ansible Playbook Using Docker
+1. Create a new container using the command `docker run –it -p 8080:80ubuntu:18.04/bin/bash`
+2. Run the command `apt-get update && apt-get upgrade` so the repositories have the most updated packages and installed packages will update
+3. Run the command `apt install -y ansible` to install ansible
+4. Run the command `mkdir -p /home/example ; cd /home/example` using another directory name beside 'example' so you have a directory to work out of
+5. Run the command `apt install -y git` to install git
+6. Run the command `git clone https://github.com/Ajakelewis/SeniorDesign.git` so you have access to the playbook
+7. Run the command `mv /home/example/SeniorDesign/Ansible-Playbook.yml .` to move the playbook into the ansible directory
+8. Run the command `ansible-playbook Ansible-Playbook.yml` to run the playbook
