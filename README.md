@@ -15,8 +15,8 @@ This is project 0 for CIT 481. We've used Github and Amazon Web Services to crea
 
 ## Community
 
-The development team can usually be found in the Slack server.
-
+The development team can usually be found in the Slack or Discord server.
+https://discord.gg/BsVJq8xE
 
 ## Special Thanks to
 
