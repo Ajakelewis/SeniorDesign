@@ -6,7 +6,7 @@ https://tidalmigrations.com/subnet-builder/
 
 ![enter image description here](https://lh3.googleusercontent.com/rwrNs2uaQhOi4di01Sp7oSPzMO6jgVqBg8D-j5vG8StQi-ob2KgYIpRfp9TBhDWpl9bQq8lhISS35I-JekIJWKqP8Kt8R5D_KA9-mQwg0XMDs9ADqlQk9j41XLTCr8w8N_zByr8M)
 
-###Step 2. Create 3 public subnets in 3 different availability zones (AZ) with at least 1024 available IP addresses per subnet.
+### Step 2. Create 3 public subnets in 3 different availability zones (AZ) with at least 1024 available IP addresses per subnet.
 ![enter image description here](https://lh5.googleusercontent.com/9h0IQJ9LKukLxzanOO7s9ofHaKs16sEqR1X_LutbNZ7g2W-wnN7NDWy0l_rwh9veL-3oJHhzOj5oFgWCdMSakfoAn7q2rY69_Ya2Gyozou9xY7B1occ6bRZO7lBv3MjrrUCdXxbM)
 ![enter image description here](https://lh3.googleusercontent.com/NB-12-uEq3wLIcDJe1C51HYKyxS3I6bsH_79fSaKJC2gR0rfyGLxATumbukMT-XrgymDnTF7CL6t7w9vtVtIhuz9i-ZEL6TFzGR69UFb)
 ![enter image description here](https://lh3.googleusercontent.com/XmdJqKMZl8uoO2c_1Eg0tX-XJ_2yIHF-yNsfrAYCFlWH_IkHb1xhoAf4IHHXoUBE0sKa8gbnGDzwa9qQoN5OMQa7Pp0pwbMFhmmSoBxp)
