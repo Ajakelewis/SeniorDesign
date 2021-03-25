@@ -1,7 +1,7 @@
 # CIT 481 Senior Design Project AWS Services Documentation
 
 ## Setting up a Virtual Private Cloud (VPC)
-###Step 1. In order to plan out the VPC before creating it, we recommend using the VPC Subnet Builder from Tidal Migrations:
+### Step 1. In order to plan out the VPC before creating it, we recommend using the VPC Subnet Builder from Tidal Migrations:
 https://tidalmigrations.com/subnet-builder/
 
 ![enter image description here](https://lh3.googleusercontent.com/rwrNs2uaQhOi4di01Sp7oSPzMO6jgVqBg8D-j5vG8StQi-ob2KgYIpRfp9TBhDWpl9bQq8lhISS35I-JekIJWKqP8Kt8R5D_KA9-mQwg0XMDs9ADqlQk9j41XLTCr8w8N_zByr8M)
@@ -50,7 +50,7 @@ https://tidalmigrations.com/subnet-builder/
 
     [enter link description here](https://letsencrypt.org/getting-started/)
 
-####With Shell Access Using Certbot:
+#### With Shell Access Using Certbot:
 ![enter image description here](https://lh3.googleusercontent.com/ZmBAfBIYxTybjCOrIh_HsCiy_J8dAed1RkxJlZJdsNL8L9NKrBra6oUBraKrqJo0c8_ODkVIcNYOgZhl6r8-BGbpKvNXlaQ_QDx613FylxXHxFA-Fz-lAzFpi90--fgtXpz_0-N0)
 
 ![enter image description here](https://lh5.googleusercontent.com/PZs9CCKSqQPtHm1mBERPBom9uY55egmW7g1ILzouUqoqI6dgIwRMq344owRgloN5mDmT4Mhs7Qeq9BwrEuH_4-56cHb5n7Ub_VNgePFKirlhk_ql1_gV72h_EHMiyu-ljcGb2Jup)
