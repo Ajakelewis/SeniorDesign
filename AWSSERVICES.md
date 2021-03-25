@@ -46,18 +46,15 @@ https://tidalmigrations.com/subnet-builder/
 
 
 ## Obtaining a TLC Certificate
+#### In order to obtain a TLC certificate we reccomend using Lets Encrypt:
+[https://letsencrypt.org/getting-started/](https://letsencrypt.org/getting-started/)
 
+### With Shell Access Using Certbot:
 
-    [enter link description here](https://letsencrypt.org/getting-started/)
-
-#### With Shell Access Using Certbot:
-![enter image description here](https://lh3.googleusercontent.com/ZmBAfBIYxTybjCOrIh_HsCiy_J8dAed1RkxJlZJdsNL8L9NKrBra6oUBraKrqJo0c8_ODkVIcNYOgZhl6r8-BGbpKvNXlaQ_QDx613FylxXHxFA-Fz-lAzFpi90--fgtXpz_0-N0)
-
+#### Verify requirements by entering information about your setup.
 ![enter image description here](https://lh5.googleusercontent.com/PZs9CCKSqQPtHm1mBERPBom9uY55egmW7g1ILzouUqoqI6dgIwRMq344owRgloN5mDmT4Mhs7Qeq9BwrEuH_4-56cHb5n7Ub_VNgePFKirlhk_ql1_gV72h_EHMiyu-ljcGb2Jup)
 
-
-Install snapd
-Install Certbot
+#### Follow the instructions below to install certbot: 
 ![enter image description here](https://lh4.googleusercontent.com/yTyFNrG06eQIk5As7oDwoHhu-3Uuts6kIsUxRauWqZQasN15p1sUj8raKh-8jZsJsgWzMws38jEd5-nqLRAoRNRaqPPeox2-2Uc1iN2XXGBMoCXqTs2JGYUkct99wmU-tAOlQL0k)
 
 ![enter image description here](https://lh6.googleusercontent.com/KV64eYmBbEqp5rOsGiwcfGn8FyQcgMqXit8acmH2hP-DdTu5YvOHVWOYlB99OhZXVT2hXObdboDPUNrtJQX-oPVOyOfShnBK4e2wFMviX1flZ0yfIQynHs1UGoIpvbehhvxTpj4F)
@@ -66,6 +63,7 @@ Install Certbot
 
 ![enter image description here](https://lh3.googleusercontent.com/w1kP1Al1x2AZF68SICDFcJrs1KYewCzwhPifuXX6VgiTYXIZptaPhtoO1EiAF2t4LSNwBm0K6UNGkcRKv3VyNcKJ6C4W9Bg_t9xSE2OhRIN-mgxjCBQshVj2Y-L8a6wuzn0tIk9t)
 
+#### Verify that the site is now secure through the web:
 ![enter image description here](https://lh6.googleusercontent.com/JTQXabrFrgTfDtibBul-xJVvbGxEsivAPCV8Vt7QO020RBp0J_oeveplm7F-hOWtp6tzrIxe3Z--mandCUvP2DBOMZRGg7YVB0FHcljiFaS-nBHCpbrtCVmWlYKhy4zfYoJ2-kKv)
 
 ![enter image description here](https://lh6.googleusercontent.com/7aZ7jD4ll0RsgdIPQXuqPoFPo_yUhJuSDDLrT17kJppLiJ_Iaj7rGeTIEp5obBjhahqj17Mty1ndDNDBaZ7_lxGrBfHWt7cxNcGz-l0rkJqvRGG0UR4OL50y6db0eS5cFfofrgd5)
