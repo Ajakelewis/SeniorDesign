@@ -120,10 +120,11 @@ Now that your bucket and lock have been created add the following to the top of 
     `backend  "s3" {` <br>
     `region         = "us-west-2"` <br>
     `bucket         = "the name of the bucket you created"` <br>
-    `key            = "<any name>/terraform.tfstate"` <br> Key can be anything you want
-    `dynamodb_table = "tf-state-lock"` <br> Name of lock created above 
-    `}`
-`}`
+    `key            = "<any name>/terraform.tfstate"` <br> 
+    Key can be anything you want <br>
+    `dynamodb_table = "tf-state-lock"` <br> Name of lock created above <br>
+    `}` <br>
+`}` <br>
 Run $ `terraform apply` to apply the changes.
 
 Note: Make sure you never directly enter any secrets into a Terraform file. They will be stored in plain text in the state file, which is never desired. All secrets should be kept in an encrypted storage system and only decrypted when necessary.
