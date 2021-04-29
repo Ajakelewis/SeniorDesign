@@ -11,6 +11,7 @@ This is project 0 for CIT 481. We've used Github and Amazon Web Services to crea
  - AWS Elastic Compute Cloud (EC2)
  - TLS Certificate
  - Ansible Playbook
+ - Automation Using Terraform
 
 
 ## Community
