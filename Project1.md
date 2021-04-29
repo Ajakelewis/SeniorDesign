@@ -82,7 +82,7 @@ You can also use AWS DynamoDB to prevent multiple people from making changes at 
 Just keep in mind that you should be able to use a single S3 bucket for all of your state, but DynamoDB locking may require separate tables.
 Learn more here: (https://www.terraform.io/docs/backends/types/s3.html)
 
-To use remote state, you must first create the S3 bucket and DynamoDB table. To begin, make a directory with a main.tf file and include the following code:
+To use remote state, you must first create the S3 bucket and DynamoDB table. To begin, make a directory with a main.tf file and include the following code: <br>
 `resource "aws_s3_bucket" "tf-remote-state" {` <br>
   `bucket = "name of bucket to create"  Cannot contain capital letters` <br>
 
