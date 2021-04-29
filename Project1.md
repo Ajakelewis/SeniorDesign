@@ -60,6 +60,14 @@ You will now create more than one instance in EC2. You will create the following
 2. Bastion of jump instance
 3. Service instances
 
+The bastion instance will be used to give you access to instances that are not open to the public. This box serves as an entry point into our environment. This box could be the same as the NAT instance box, but that is up to you to decide. Because this instance is public, you must take precautions to keep it as secure as possible. To prevent brute force attacks, consider implementing a system such as fail2ban. All measures taken to secure your system should be documented in an Ansible playbook (s).
+
+The number of service instances will be increased, and two will be required to handle traffic. For public access, these instances must be placed in a private subnet but behind an Application Load Balancer (ALB).
+
+### Application Load Balancer/Classic Load Balancer:
+
+A load balancer enables us to have a scalable and redundant entry point for public traffic to our site. Our ALB should be constructed in the same AZs as your service instances, but on public subnets. The ALB should now be able to connect to your instances in the private subnets.
+
 
 
 
@@ -128,6 +136,11 @@ Now that your bucket and lock have been created add the following to the top of 
 Run $ `terraform apply` to apply the changes.
 
 Note: Make sure you never directly enter any secrets into a Terraform file. They will be stored in plain text in the state file, which is never desired. All secrets should be kept in an encrypted storage system and only decrypted when necessary.
+SSL/TLS decryption should be moved away from our instances and onto the ALB. The ALBs are designed to perform these cipher transactions much more efficiently, and we will currently assume that our VPC is a secure environment in which unencrypted traffic can be transferred when certain regulations such as PCI or HIPAA do not require it. You'll need to figure out how to get your certificates to the ALB.
+
+The DNS record provided by Route53 will then be used for all records required to access your site. In Route53, we can use an Alias A record to help limit the number of DNS requests required to access our site. 
+
+### Note that we also have the option to use a Application Load Balancer (ALB) or an Elastic Load Balancer (ELB)
 
 
 
