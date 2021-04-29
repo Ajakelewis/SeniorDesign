@@ -140,7 +140,7 @@ SSL/TLS decryption should be moved away from our instances and onto the ALB. The
 
 The DNS record provided by Route53 will then be used for all records required to access your site. In Route53, we can use an Alias A record to help limit the number of DNS requests required to access our site. 
 
-### Note that we also have the option to use a Application Load Balancer (ALB) or an Elastic Load Balancer (ELB)
+#### Note that we also have the option to use a Application Load Balancer (ALB) or an Elastic Load Balancer (ELB)
 
 
 
