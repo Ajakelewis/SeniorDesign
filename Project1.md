@@ -142,6 +142,17 @@ The DNS record provided by Route53 will then be used for all records required to
 
 #### Note that we also have the option to use a Application Load Balancer (ALB) or an Elastic Load Balancer (ELB)
 
+# Ansible Task
+We created two playbooks for Ansible:
+1. Web server setup and configuration
+2. Service deployment
+The first playbook will do everything to take a newly created instance and make it usable by the our application.
+
+# Serverless Tasks (LAMBDA)
+AWS Lambda lets us run code without provisioning or managing servers. 
+
+To help reduce costs, We created a Lambda function that will start and stop our EC2 instances. 
+
 
 
 
