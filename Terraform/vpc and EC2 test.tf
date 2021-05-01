@@ -3,9 +3,8 @@ provider "aws" {
 }
 
 resource "aws_security_group" "port80" {
-  name        = "port80"
+  name        = "Alex test port80 rule"
   description = "Port 80 open for traffic"
-
 
   ingress {
     from_port   = 80
@@ -44,16 +43,18 @@ resource "aws_instance" "test" {
   depends_on = [aws_security_group.port80]
   ami = "ami-02701bcdc5509e57b"
   instance_type = "t2.micro"
+  key_name = "pairTeamBlue"
+  iam_instance_profile = "TeamBlueIAM"
   vpc_security_group_ids = [aws_security_group.port80.id]
   tags = {
-    Name = "test instance"
+    Name = "Alex test Ubuntu instance"
   }
 }
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "Proj0-VPC"
+  name = "Alex test Proj0-VPC"
   cidr = "172.31.0.0/16"
 
   azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
