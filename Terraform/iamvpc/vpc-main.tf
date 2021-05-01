@@ -12,65 +12,80 @@ resource "aws_vpc" "main" {
  ################# Subnets #############
 resource "aws_subnet" "subnet1" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "172.31.32.0/19"
   availability_zone = "${var.availability_zone1}"
-
-
+  tags = {
+    Name = "Private Subnet 1"
+  }
 
 }
 resource "aws_subnet" "subnet2" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.2.0/24"
+  cidr_block = "172.31.96.0/19"
   availability_zone = "${var.availability_zone2}"
-
+  tags = {
+    Name = "Private Subnet 2"
+  }
 
 
 }
 resource "aws_subnet" "subnet3" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.3.0/24"
+  cidr_block = "172.31.160.0/19"
   availability_zone = "${var.availability_zone3}"
-
+tags = {
+    Name = "Private Subnet 3"
+  }
 
 
 }
 resource "aws_subnet" "subnet4" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.4.0/24"
+  cidr_block = "172.31.0.0/19"
   availability_zone = "${var.availability_zone1}"
-
+tags = {
+    Name = "Public Subnet 1"
+  }
 
 
 }
 resource "aws_subnet" "subnet5" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.5.0/24"
+  cidr_block = "172.31.64.0/19"
   availability_zone = "${var.availability_zone2}"
-
+tags = {
+    Name = "Public Subnet 2"
+  }
 
 
 }
 resource "aws_subnet" "subnet6" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.6.0/24"
+  cidr_block = "172.31.128.0/19"
   availability_zone = "${var.availability_zone3}"
-
+  tags = {
+    Name = "Public Subnet 3"
+  }
 
 
 }
 resource "aws_subnet" "subnet7" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.7.0/24"
+  cidr_block = "172.31.192.0/19"
   availability_zone = "${var.availability_zone1}"
-
+  tags = {
+    Name = "ALB Subnet"
+  }
 
 
 }
 resource "aws_subnet" "subnet8" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.8.0/24"
+  cidr_block = "172.31.224.0/19"
   availability_zone = "${var.availability_zone2}"
-
+  tags = {
+    Name = "NAT Subnet"
+  }
 
 
 }

@@ -22,6 +22,6 @@ variable "availability_zone3" {
 
 variable "main_vpc_cidr" {
     description = "CIDR of the VPC"
-    default = "10.0.0.0/16"
+    default = "172.31.0.0/16"
 }
 
