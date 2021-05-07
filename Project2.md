@@ -32,7 +32,20 @@ We created a Lambda function that will be called in the event of a two-minute wa
 5. Check what regions are running an instance.
 
 
-
-
 ## 3. Monitoring
+
+Monitoring is another essential component to include in your infrastructure. 
+Though AWS CloudWatch does provide some simple free monitoring, it is far from adequate.
+When it comes to monitoring, there are several choices. Here are a couple of options:
+
+* https://www.elastic.co/what-is/elk-stack
+* https://prometheus.io/
+* Here is a link to setting up an ELK stack: https://phoenixnap.com/kb/how-to-install-elk-stack-on-ubuntu
+
+* Here is a link to setting up Prometheus and Grafana Dashboard:
+https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
+
+There is an option to perform a manual installation to walk through the setup process. 
+Finally, this configuration is already included in an Ansible playbook.
+
 
