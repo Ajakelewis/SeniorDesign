@@ -10,5 +10,14 @@ Second, we'll integrate improved infrastructure monitoring.
 2. Serverless Tasks (LAMBDA)
 3. Monitoring
 
-# 1. Spot Instances
+## 1. Spot Instances
+
+
+
+## 2. Serverless Tasks (LAMBDA)
+
+
+
+
+### 3. Monitoring
 
