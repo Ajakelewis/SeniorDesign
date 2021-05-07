@@ -29,7 +29,7 @@ We created a Lambda function that will be called in the event of a two-minute wa
 2. Remove the instance from the Application Load Balancer (ALB).
 3. Place request for new spot instance in a second availability zone.
 4. Register the new instance with the Application Load Balancer (ALB).
-5. Check what regions are running an instance
+5. Check what regions are running an instance.
 
 
 
