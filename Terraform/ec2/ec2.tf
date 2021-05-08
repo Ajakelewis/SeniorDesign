@@ -31,10 +31,11 @@ resource "aws_security_group" "sg_22" {
 
 
 
-resource "aws_instance" "proj1" {
+resource "aws_instance" "proj2" {
 ami = "ami-0ca5c3bd5a268e7db "
 instance_type = "t2.micro"
-
+subnet_id = "subnet4"
+associate_public_ip_address = "true"
 vpc_security_group_ids = ["${aws_security_group.sg_22.id}"]
 tags = { name = "proj1"}
 }
