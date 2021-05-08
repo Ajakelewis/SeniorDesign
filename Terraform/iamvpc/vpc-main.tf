@@ -6,13 +6,12 @@ resource "aws_vpc" "main" {
   enable_dns_support = true
   enable_dns_hostnames = true
 
-
 }
 
  ################# Subnets #############
 resource "aws_subnet" "subnet1" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.1.0/16"
+  cidr_block = "172.31.1.0/24"
   availability_zone = "${var.availability_zone1}"
   tags = {
     Name = "Private Subnet 1"
@@ -21,7 +20,7 @@ resource "aws_subnet" "subnet1" {
 }
 resource "aws_subnet" "subnet2" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.2.0/16"
+  cidr_block = "172.31.2.0/24"
   availability_zone = "${var.availability_zone2}"
   tags = {
     Name = "Private Subnet 2"
@@ -31,7 +30,7 @@ resource "aws_subnet" "subnet2" {
 }
 resource "aws_subnet" "subnet3" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.3.0/16"
+  cidr_block = "172.31.3.0/24"
   availability_zone = "${var.availability_zone3}"
 tags = {
     Name = "Private Subnet 3"
@@ -41,9 +40,9 @@ tags = {
 }
 resource "aws_subnet" "subnet4" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.4.0/16"
+  cidr_block = "172.31.4.0/24"
   availability_zone = "${var.availability_zone1}"
-  
+  map_public_ip_on_launch = true
 tags = {
     Name = "Public Subnet 1"
   }
@@ -52,7 +51,7 @@ tags = {
 }
 resource "aws_subnet" "subnet5" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.5.0/16"
+  cidr_block = "172.31.5.0/24"
   availability_zone = "${var.availability_zone2}"
 tags = {
     Name = "Public Subnet 2"
@@ -62,7 +61,7 @@ tags = {
 }
 resource "aws_subnet" "subnet6" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.6.0/16"
+  cidr_block = "172.31.6.0/24"
   availability_zone = "${var.availability_zone3}"
   tags = {
     Name = "Public Subnet 3"
@@ -72,7 +71,7 @@ resource "aws_subnet" "subnet6" {
 }
 resource "aws_subnet" "subnet7" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.7.0/16"
+  cidr_block = "172.31.7.0/24"
   availability_zone = "${var.availability_zone1}"
 
   tags = {
@@ -83,7 +82,7 @@ resource "aws_subnet" "subnet7" {
 }
 resource "aws_subnet" "subnet8" {
   vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "172.31.8.0/16"
+  cidr_block = "172.31.8.0/24"
   availability_zone = "${var.availability_zone2}"
   tags = {
     Name = "NAT Subnet"
@@ -135,15 +134,15 @@ resource "aws_route_table" "main-private-rt" {
 
 ######### PUBLIC Subnet assiosation with route table    ######
 resource "aws_route_table_association" "public-assoc-1" {
-  subnet_id      = "${aws_subnet.subnet1.id}"
+  subnet_id      = "${aws_subnet.subnet4.id}"
   route_table_id = "${aws_route_table.main-public-rt.id}"
 }
 resource "aws_route_table_association" "public-assoc-2" {
-  subnet_id      = "${aws_subnet.subnet2.id}"
+  subnet_id      = "${aws_subnet.subnet5.id}"
   route_table_id = "${aws_route_table.main-public-rt.id}"
 }
 resource "aws_route_table_association" "public-assoc-3" {
-  subnet_id      = "${aws_subnet.subnet3.id}"
+  subnet_id      = "${aws_subnet.subnet6.id}"
   route_table_id = "${aws_route_table.main-public-rt.id}"
 }
 resource "aws_route_table_association" "public-assoc-5" {
@@ -157,14 +156,14 @@ resource "aws_route_table_association" "public-assoc-4" {
 
 ########## PRIVATE Subnets assiosation with route table ######
 resource "aws_route_table_association" "private-assoc-1" {
-  subnet_id      = "${aws_subnet.subnet4.id}"
+  subnet_id      = "${aws_subnet.subnet1.id}"
   route_table_id = "${aws_route_table.main-private-rt.id}"
 }
 resource "aws_route_table_association" "private-assoc-2" {
-  subnet_id      = "${aws_subnet.subnet5.id}"
+  subnet_id      = "${aws_subnet.subnet2.id}"
   route_table_id = "${aws_route_table.main-private-rt.id}"
 }
 resource "aws_route_table_association" "private-assoc-3" {
-  subnet_id      = "${aws_subnet.subnet6.id}"
+  subnet_id      = "${aws_subnet.subnet3.id}"
   route_table_id = "${aws_route_table.main-private-rt.id}"
 }
