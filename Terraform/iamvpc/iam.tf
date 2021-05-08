@@ -3,9 +3,9 @@ resource "aws_iam_user" "blue_team" {
   
 }
 
-resource "aws_iam_role_policy" "proj1-policy" {
-  name = "proj1-iam-policy"
-  role = "${aws_iam_role.proj1-iam-role.id}"
+resource "aws_iam_role_policy" "proj2-policy" {
+  name = "proj2-iam-policy"
+  role = "${aws_iam_role.proj2-iam-role.id}"
 
   policy = <<EOF
 {
@@ -21,8 +21,8 @@ resource "aws_iam_role_policy" "proj1-policy" {
 EOF
 }
 
-resource "aws_iam_role" "proj1-iam-role" {
-  name = "proj1-iam-role"
+resource "aws_iam_role" "proj2-iam-role" {
+  name = "proj2-iam-role"
 
   assume_role_policy = <<EOF
 {
@@ -40,13 +40,13 @@ resource "aws_iam_role" "proj1-iam-role" {
 EOF
 
   tags = {
-    tag-key = "proj1-iam-role"
+    tag-key = "proj2-iam-role"
   }
 }
 
-resource "aws_iam_instance_profile" "proj1-iam-instance-profile" {
-  name = "proj1-iam-instance-profile"
-  role = "${aws_iam_role.proj1-iam-role.name}"
+resource "aws_iam_instance_profile" "proj2-iam-instance-profile" {
+  name = "proj2-iam-instance-profile"
+  role = "${aws_iam_role.proj2-iam-role.name}"
 }
 
 resource "aws_iam_group_membership" "team" {
@@ -54,17 +54,17 @@ resource "aws_iam_group_membership" "team" {
 
   users = [
     aws_iam_user.blue_team.name,
-    aws_iam_user.proj_one.name,
+    aws_iam_user.proj_two.name,
   ]
 
   group = aws_iam_group.group.name
 }
 
 resource "aws_iam_group" "group" {
-  name = "proj1-group"
+  name = "proj2-group"
 }
 
-resource "aws_iam_user" "proj_one" {
-  name = "proj1-user"
+resource "aws_iam_user" "proj_two" {
+  name = "proj2-user"
 }
 
