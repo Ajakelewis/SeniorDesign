@@ -59,12 +59,6 @@
     become: yes
     shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-  - name: composer Install
-    become: yes
-    command: composer install
-    args:
-      chdir: /var/www/html/
-
   - name: apache2 Start
     become: yes
     service:
