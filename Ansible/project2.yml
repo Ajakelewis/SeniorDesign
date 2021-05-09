@@ -33,7 +33,7 @@
     become: yes
     shell: sed -i "s%/var/www/html%/var/www/html/public%g" /etc/apache2/sites-available/000-default.conf
 
-  - name: Delete content & directory
+  - name: Delete the current content & directory
     file:
      state: absent
      path: /var/www/html
@@ -43,10 +43,11 @@
      path: /var/www/html
      state: directory
 
-  - name: Get Files From Github
+  - name: Clone Movie-App From Github
     become: yes
-    git: repo=https://github.com/mikehosseini/movie-app.git/  dest=/var/www/html
-
+    git:
+     repo: 'https://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@github.com/mikehosseini/movie-app.git'
+     dest: /var/www/html
 
   - name: Set apache2 config
     become: yes
