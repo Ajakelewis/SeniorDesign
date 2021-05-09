@@ -9,17 +9,7 @@
     - mysql-client 
     - vim
     - git
-    - curl
     - sed
-    - php
-    - libapache2-mod-php
-    - php-mysql
-    - php7.2-cli
-    - php7.2-curl
-    - php7.2-gd
-    - php7.2-mbstring
-    - php7.2-mysql
-    - php7.2-xml
 
   - name: Set mod-enabled apache2
     become: yes
@@ -29,14 +19,22 @@
     become: yes
     shell: sed -i "s%DirectoryIndex%DirectoryIndex index.php%" /etc/apache2/mods-enabled/dir.conf
 
-- name: Set sites-available apache2
+  - name: Set sites-available apache2
     become: yes
     shell: sed -i "s%/var/www/html%/var/www/html/public%g" /etc/apache2/sites-available/000-default.conf
+    
+  - name: Set index.html Permissions
+    file:
+      path: /var/www/html/index.html
+      state: touch
+      owner: www-data
+      mode: 0777
+    become: yes   
 
-  - name: Delete the current content & directory
+  - name: Delete the current index.html
     file:
      state: absent
-     path: /var/www/html
+     path: /var/www/html/
 
   - name: Creates directory
     file:
@@ -46,7 +44,7 @@
   - name: Clone Movie-App From Github
     become: yes
     git:
-     repo: 'https://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@github.com/mikehosseini/movie-app.git'
+     repo: https://github.com/mikehosseini/movie-app.git
      dest: /var/www/html
 
   - name: Set apache2 config
