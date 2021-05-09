@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Install Required Packages
+    become: yes
+    apt: pkg={{ item }} state=latest
+    with_items:
+    - apache2
+    - git
+    
+  - name: Get movieApp From Github
+    become: yes
+    git: repo=https://github.com/Ajakelewis/SeniorDesign.git
+    dest=/var/www/html/appRepo
+  
+  - name: Copy contents of movieApp to html
+    become: yes
+    command: cp -RT /var/www/html/appRepo/movieApp /var/www/html
+    
+  - name: apache2 Start
+    become: yes
+    service:
+      name: apache2
+      state: started
