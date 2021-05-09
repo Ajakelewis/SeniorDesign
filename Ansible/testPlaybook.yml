@@ -10,8 +10,7 @@
     
   - name: Get movieApp From Github
     become: yes
-    git: repo=https://github.com/Ajakelewis/SeniorDesign.git
-    dest=/var/www/html/appRepo
+    git: repo=https://github.com/Ajakelewis/SeniorDesign.git dest=/var/www/html/appRepo
   
   - name: Copy contents of movieApp to html
     become: yes
