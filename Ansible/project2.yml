@@ -28,7 +28,7 @@
       path: /var/www/html/index.html
       state: touch
       owner: www-data
-      mode: 0775
+      mode: 0777
     become: yes   
 
   - name: Delete the current index.html
