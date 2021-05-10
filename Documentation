@@ -16,15 +16,16 @@ Our group decided to use Amazon's Web server Management Services via Route 53 to
     VPC on AWS
 
 We set up a Virtual Private Connection and dropped in our resources to use for each VPC we create. 
+The Tidal Migrations Subnet Builder takes the idea of an IP Calculator to the next level, allowing you to build entire cloud and datacenter IP address plans visually. Simply enter your highest-level parent subnet and start breaking it down by selecting subnets of the appropriate sizes using the buttons to the right.
 
     EC2 Web Server
-
+    
 Using Amazon’s Elastic Compute Cloud we don't need to use physical hardware for setting up the server and can develop and deploy the application much faster. We are also able to configure the security, network and manage storage for as many virtual servers we launch. 
 
-
-   TLS Certs
-
-Using Amazon’s Certificate Manager integrated in aws we renew our certs after the request and validation process and enable ssl for cloud front. 
+    TLS Certs
+  
+Using Amazon’s Certificate Manager integrated in AWS, we renew our certs after the request and validation process and enable ssl for cloud front. 
+We used Let’s encrypt and certbot to generate our TLS Certificate. 
 
    Ansible Playbook
 
