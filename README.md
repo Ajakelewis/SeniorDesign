@@ -18,7 +18,7 @@ This is project 0 for CIT 481. We've used Github and Amazon Web Services to crea
 
 The development team can usually be found in the Slack or Discord server.
 
-[https://discord.gg/BsVJq8xE](https://discord.gg/BsVJq8xE)
+[https://csun-senior-design.slack.com/archives/G01H51535MW](https://csun-senior-design.slack.com/archives/G01H51535MW)
 
 ## Special Thanks to
 
