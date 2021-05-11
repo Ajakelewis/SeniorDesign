@@ -1,18 +1,19 @@
 # CIT 481 Senior Design Project
-
+Team Blue
 ## What is this?
 
-This is project 0 for CIT 481. We've used Github and Amazon Web Services to create and host a website on an EC2 Instance. 
+This is project 2 for CIT 481. Using Github and Amazon Web Services to create and host a website, we now switch from on-demand EC2 instances to spot instances and incorporate monitoring.
 
 ## Features
 
  - Custom Domain
  - Virtual Private Cloud (VPC)
- - AWS Elastic Compute Cloud (EC2)
+ - AWS Elastic Compute Cloud (EC2 Spot)
  - TLS Certificate
  - Ansible Playbook
  - Automation Using Terraform
-
+ - Serverless Tasks (LAMBDA)
+ - Monitoring (ELK-stack)
 
 ## Community
 
