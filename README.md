@@ -13,6 +13,7 @@ This is project 2 for CIT 481. Using Github and Amazon Web Services to create an
  - Ansible Playbook
  - Automation Using Terraform
  - Serverless Tasks (LAMBDA)
+ - Application Load Balancer
  - Monitoring (ELK-stack)
 
 ## Community
