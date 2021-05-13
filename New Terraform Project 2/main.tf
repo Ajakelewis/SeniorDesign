@@ -89,6 +89,11 @@ resource "aws_spot_instance_request" "test_worker" {
   spot_type              = "one-time"
   wait_for_fulfillment   = "true"
   key_name               = "proj2"
+  
+  tags = {
+    Purpose = "lambda"
+  }
+  
   security_groups = ["${aws_security_group.ingress-ssh-test.id}", "${aws_security_group.ingress-http-test.id}",
   "${aws_security_group.ingress-https-test.id}"]
   subnet_id = "${aws_subnet.subnet-uno.id}"
