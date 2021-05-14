@@ -1,5 +1,5 @@
 # CIT 481 Senior Design Project
-Team Blue:
+Team Blue - 
 
 Alden L.
 
