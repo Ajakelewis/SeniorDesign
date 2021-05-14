@@ -45,6 +45,7 @@ resource "aws_load_balancer" "my_application_load_balancer" {
 
   tags = {
     Name = "my_test_application_load_balancer"
+	Purpose = "lambdaALB"
   }
 
   ip_address_type    = "ipv4"
