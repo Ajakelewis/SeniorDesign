@@ -25,7 +25,7 @@ This is Project 2 for CIT 481. Using Github and Amazon Web Services (AWS) to cre
  - Automation Using Terraform
  - Serverless Tasks (LAMBDA)
  - Application Load Balancer
- - Monitoring (ELK-stack)
+ - Monitoring (ELK Stack)
 
 ## Community
 
