@@ -2,7 +2,7 @@
 Team Blue
 ## What is this?
 
-This is project 2 for CIT 481. Using Github and Amazon Web Services to create and host a website, we now switch from on-demand EC2 instances to spot instances and incorporate monitoring.
+This is Project 2 for CIT 481. Using Github and Amazon Web Services (AWS) to create and host a website, we now switch from on-demand EC2 instances to spot instances and incorporate monitoring.
 
 ## Features
 
