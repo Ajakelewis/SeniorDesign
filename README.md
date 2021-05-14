@@ -1,4 +1,4 @@
-# CIT 481 Senior Design Project
+# CIT 481 Senior Design Project - Movie App
 Team Blue - 
 
 Alden L.
