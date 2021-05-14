@@ -1,5 +1,5 @@
 # CIT 481 Senior Design Project
-Team Blue
+Blue Team
 ## What is this?
 
 This is Project 2 for CIT 481. Using Github and Amazon Web Services (AWS) to create and host a website, we now switch from on-demand EC2 instances to spot instances and incorporate monitoring.
