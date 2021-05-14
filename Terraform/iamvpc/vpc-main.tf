@@ -100,6 +100,7 @@ resource "aws_internet_gateway" "main-igw" {
 
 ########### NAT ##############
 resource "aws_eip" "nat" {
+vpc = true
 }
 
 resource "aws_nat_gateway" "main-natgw" {

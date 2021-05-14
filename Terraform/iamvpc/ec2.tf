@@ -18,9 +18,12 @@ resource "aws_security_group" "sg_22" {
 
 
 
-resource "aws_instance" "proj2" {
-ami = "ami-0ca5c3bd5a268e7db "
+resource "aws_spot_instance_request" "proj2" {
+ami = "ami-0ca5c3bd5a268e7db"
+spot_price             = "0.056"
 instance_type = "t2.micro"
+spot_type              = "one-time"
+wait_for_fulfillment   = "true"
 subnet_id = aws_subnet.subnet4.id
 associate_public_ip_address = "true"
 vpc_security_group_ids = ["${aws_security_group.sg_22.id}"]
