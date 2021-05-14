@@ -2,13 +2,9 @@
 Team Blue - 
 
 Alden L.
-
 Alex V,
-
 Brent E.
-
 Mubasher A.
-
 Mike H. 
 
 ## What is this?
