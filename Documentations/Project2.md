@@ -48,4 +48,4 @@ https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
 There is an option to perform a manual installation to walk through the setup process. 
 Finally, this configuration is already included in an Ansible playbook.
 
-Presentation Slides: https://docs.google.com/presentation/d/1swPOfmmGux4YAR0Wk0TRNNj8QK0zaUQ5lVCy5E3_otg/edit?usp=sharing
+Presentation Slides: https://bit.ly/3tJ7F7B
