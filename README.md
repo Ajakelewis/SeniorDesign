@@ -35,4 +35,4 @@ The development team can usually be found on Slack.
 
 ## Special Thanks to
 
-Prof. Lisa Smith
+Professor Lisa Smith
