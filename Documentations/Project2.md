@@ -48,4 +48,13 @@ https://medium.com/devops-dudes/install-prometheus-on-ubuntu-18-04-a51602c6256b
 There is an option to perform a manual installation to walk through the setup process. 
 Finally, this configuration is already included in an Ansible playbook.
 
+# Additional Setups
+
+## Application Load Balancer
+
+- The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
+  1.  Configure a load balancer and a listener
+  2.  Configure security settings for an HTTPS listener + group
+  4.  Configure a target group
+
 Presentation Slides: https://bit.ly/3tJ7F7B
