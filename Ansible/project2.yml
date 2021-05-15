@@ -1,1 +1,41 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Important Packages
+      become: yes
+      apt: pkg={{ item }} state=latest
+      with_items:
+       - nano 
+       - vim
+       - git
+       - sed
+       - zip
+       - unzip
+  
+    - name: Install apache2
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: Delete the Default index.html
+      file:
+       state: absent
+       path: /var/www/html
+
+    - name: Clone Movie-App Files from my personal public Git repo 
+      become: yes
+      git: repo=https://github.com/mikehosseini/movie-app.git dest=/var/www/html
+
+    - name: Set apache2 configuration file 1
+      become: yes
+      shell: sed -i "s%Require all denied%Require all granted%g" /etc/apache2/apache2.conf
+
+    - name: Set apache2 config 2
+      become: yes
+      shell: sed -i "s%Directory /var/www/%Directory /var/www/html/public%g" /etc/apache2/apache2.conf
+
+    - name: apache2 Start
+      become: yes
+      service:
+        name: apache2
+        state: started
 
