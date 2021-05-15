@@ -28,7 +28,6 @@
     - name: Set apache2 configuration file 1
       become: yes
       shell: sed -i "s%Require all denied%Require all granted%g" /etc/apache2/apache2.conf
-      warn: false
 
     - name: Set apache2 config 2
       become: yes
