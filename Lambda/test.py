@@ -64,13 +64,13 @@ def lambda_handler(event, context):
         InstanceCount=1,
         Type='one-time',
         LaunchSpecification={
-            'ImageId': 'ami-0e32ffd303312650c',
+            'ImageId': 'ami-090717c950a5c34d3',
             'SecurityGroupIds': [
                 'sg-fcbf81c4',
             ],
             'InstanceType': 't2.micro',
             'Placement': {
-                'AvailabilityZone': 'us-west-2c'
+                'AvailabilityZone': 'us-west-2a'
             },
         }
     )
