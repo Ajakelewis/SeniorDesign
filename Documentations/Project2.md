@@ -52,7 +52,12 @@ Finally, this configuration is already included in an Ansible playbook.
 
 ## Application Load Balancer
 
-- The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
+The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
  
+ 1. Configure a load balancer and a listener
+ 2. Configure security settings for an HTTPS listener + group
+ 3. Configure a target group
+
 
 Presentation Slides: https://bit.ly/3tJ7F7B
+
