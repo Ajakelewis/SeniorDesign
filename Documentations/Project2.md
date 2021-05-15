@@ -47,7 +47,15 @@ Finally, this configuration is already included in an Ansible playbook.
 
 # Additional Setups
 
-TLC Certificate
+## Application Load Balancer
+
+The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
+ 
+ 1. Configure a load balancer and a listener
+ 2. Configure security settings for an HTTPS listener + group
+ 3. Configure a target group
+
+## TLC Certificate
 
 SSH into the instance and run the follow commands to:
 
@@ -58,16 +66,4 @@ Run Certbot: sudo certbot --apache
 The Certbot packages that were installed comes with a cron job that renews the certificates automatically before they expire. Thus, we can then test automatic renewal for our certificates by running:
 
 sudo certbot renew --dry-run
-
-
-## Application Load Balancer
-
-The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
- 
- 1. Configure a load balancer and a listener
- 2. Configure security settings for an HTTPS listener + group
- 3. Configure a target group
-
-
-Presentation Slides: https://bit.ly/3tJ7F7B
 
