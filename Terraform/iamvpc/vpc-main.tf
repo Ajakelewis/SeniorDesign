@@ -64,7 +64,7 @@ resource "aws_subnet" "subnet6" {
   cidr_block = "172.31.6.0/24"
   availability_zone = "${var.availability_zone3}"
   tags = {
-    Name = "Public Subnet 3"
+    Name = "Public Subnet 3ALB"
   }
 
 
