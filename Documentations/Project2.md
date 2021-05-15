@@ -12,14 +12,10 @@ Second, we'll integrate improved infrastructure monitoring.
 
 ## 1. Spot Instances
 
-Spot instances are a perfect way to cut the AWS down on costs. 
-More Info: https://aws.amazon.com/ec2/spot/?cards.sort-by=item.additionalFields.startDateTime&cards.sort-order=asc
+We updated our terraform to use spot EC2 instances instead of on-demand instances.
+We did this because spot instances let you bid on unused capacity, which will save us money on AWS costs in the long run.
 
-AWS has the replacement computer power available for a fraction of the on-demand cost of instances. 
-The one caveat to this solution is that AWS may decide at any time that they require the compute power back. 
-When this occurs, they send a two-minute warning that the resource will be reclaimed.
-
-
+While updating our EC2 file to work with spot instances, we reworked the ansible playbook process to be included directly in the creation of the EC2 instance. This allows us to have a quicker deployment with no manual input aside from running the Terraform init, Terraform plan, and Terraform apply commands. 
 
 ## 2. Serverless Tasks (LAMBDA)
 
@@ -50,6 +46,19 @@ There is an option to perform a manual installation to walk through the setup pr
 Finally, this configuration is already included in an Ansible playbook.
 
 # Additional Setups
+
+TLC Certificate
+
+SSH into the instance and run the follow commands to:
+
+Install Snap: sudo snap install core; sudo snap refresh core
+Install Certbot: sudo snap install --classic certbot 
+Run Certbot: sudo certbot --apache
+
+The Certbot packages that were installed comes with a cron job that renews the certificates automatically before they expire. Thus, we can then test automatic renewal for our certificates by running:
+
+sudo certbot renew --dry-run
+
 
 ## Application Load Balancer
 
