@@ -1,4 +1,4 @@
-# Obtaining a TLC Certificate with Certbot (Running apache on ubuntu)
+# Obtaining a TLS Certificate with Certbot (Running apache on ubuntu)
 
 More info visit: https://letsencrypt.org/getting-started/
 
