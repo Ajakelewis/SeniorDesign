@@ -1,10 +1,9 @@
-resource "aws_route53_zone" "blueteam-zone" {
+resource "aws_route53_zone" "blueteam" {
    name = "blueteam481.com"
-
 }
 
-resource "aws_route53_record" "blueteam-record" {
-   zone_id = aws_route53_zone.blueteam-zone.zone_id
+resource "aws_route53_record" "blueteam" {
+   zone_id = aws_route53_zone.blueteam.zone_id
    name = "blueteam481.com"
    type = "A"
 
