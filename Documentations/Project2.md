@@ -31,6 +31,7 @@ We created a Lambda function that will be called in the event of a two-minute wa
 4. Register the new instance with the Application Load Balancer (ALB).
 5. Check what regions are running an instance.
 
+There is also a CloudWatch Event Rule that will run the Lambda function when it detects the two-minute warning.
 
 ## 3. Monitoring
 
