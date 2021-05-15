@@ -7,26 +7,12 @@ elbv2client = boto3.client('elbv2')
 '''this is always needed for a python lambda function'''
 def lambda_handler(event, context):
     
-    '''filters the instances that the tag Purpose lambda'''
-    filters = [{
-            'Name': 'tag:Purpose',
-            'Values': ['lambda']
-        }
-    ]
-    
-    ''''instances variable holds the filtered results'''
-    instances = ec2.instances.filter(Filters=filters)
-    
-    '''response variable holds the results of the describe instances call, such as instance id, region, etc'''
-    response = client.describe_instances(Filters=filters)
-    print(response)
-    
-    '''variable to hold the instance id of every runnning instance with the Purpose lambda tag'''
-    RunningInstances = [instance.id for instance in instances]
-    
-    '''variable to hold the call to stop the instances then the variable is printed to run the calls
-    shutDown = ec2.instances.filter(InstanceIds=RunningInstances).stop()
-    print (shutDown)'''
+    response = client.describe_instances()
+    for reservation in response["Reservations"]:
+            for instance in reservation["Instances"]:
+                if instance['State']['Name'] == 'running':
+                    RunningInstances=instance["InstanceId"]
+                    stopInstance=instance
     
     '''this block puts the value of RunningInstances into a new variable that will the hold the instance id and then remove the [ ] ' characters'''
     instanceID = str(RunningInstances)
@@ -35,7 +21,7 @@ def lambda_handler(event, context):
     instanceID = instanceID.replace("'", '')
     
     '''deregisters an instance from an application load balancer, instanceID is holding a string value of the instance id,
-    this function can also register an instance by changing deregister_targets to register_targets, deregistering can take up to 5 minutes
+    this function can also register an instance by changing deregister_targets to register_targets, deregistering can take up to 5 minutes'''
     response = elbv2client.deregister_targets(
         TargetGroupArn='arn:aws:elasticloadbalancing:us-west-2:290943450292:targetgroup/project2/f44c702a0068c942',
         Targets=[
@@ -43,7 +29,14 @@ def lambda_handler(event, context):
                 'Id': instanceID,
             },
         ],
-    )'''
+    )
+    
+    import time
+    time.sleep(270)
+    
+    '''variable to hold the call to stop the instances then the variable is printed to run the calls
+    shutDown = ec2.instances.filter(InstanceIds=stopInstance).stop()
+    print (shutDown)'''
     
     '''this block checks the current spot price for the us-west-2 availability zones for a Linux t2.micro instance'''
     prices=client.describe_spot_price_history(InstanceTypes=['t2.micro'],MaxResults=1,ProductDescriptions=['Linux/UNIX'],AvailabilityZone='us-west-2a')
@@ -80,4 +73,26 @@ def lambda_handler(event, context):
                 'AvailabilityZone': 'us-west-2c'
             },
         }
+    )
+    
+    time.sleep(120)
+    
+    response = client.describe_instances()
+    for reservation in response["Reservations"]:
+            for instance in reservation["Instances"]:
+                if instance['State']['Name'] == 'running':
+                    RunningInstances=instance["InstanceId"]
+                    
+    instanceID = str(RunningInstances)
+    instanceID = instanceID.replace('[', '')
+    instanceID = instanceID.replace(']', '')
+    instanceID = instanceID.replace("'", '')
+    
+    response = elbv2client.register_targets(
+        TargetGroupArn='arn:aws:elasticloadbalancing:us-west-2:290943450292:targetgroup/project2/f44c702a0068c942',
+        Targets=[
+            {
+                'Id': instanceID,
+            },
+        ],
     )
