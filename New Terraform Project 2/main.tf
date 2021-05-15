@@ -84,7 +84,6 @@ resource "aws_route_table_association" "subnet-association" {
 }
 resource "aws_spot_instance_request" "test_worker" {
   ami                    = "ami-090717c950a5c34d3"
-  spot_price             = "0.056"
   instance_type          = "t2.micro"
   spot_type              = "one-time"
   wait_for_fulfillment   = "true"
