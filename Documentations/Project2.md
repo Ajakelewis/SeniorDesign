@@ -60,7 +60,9 @@ The load balancer distributes incoming application traffic across multiple targe
 SSH into the instance and run the follow commands to:
 
 Install Snap: sudo snap install core; sudo snap refresh core
+
 Install Certbot: sudo snap install --classic certbot 
+
 Run Certbot: sudo certbot --apache
 
 The Certbot packages that were installed comes with a cron job that renews the certificates automatically before they expire. Thus, we can then test automatic renewal for our certificates by running:
